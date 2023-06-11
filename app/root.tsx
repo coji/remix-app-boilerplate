@@ -11,6 +11,7 @@ import {
 } from '@remix-run/react'
 import { createHead } from 'remix-island'
 import { authenticator } from './services/auth.server'
+import { keepAwake } from './services/shrink-to-zero.server'
 
 export const meta: V2_MetaFunction = () => [
   { charSet: 'utf-8' },
@@ -20,6 +21,7 @@ export const meta: V2_MetaFunction = () => [
 ]
 
 export const loader = async ({ request }: LoaderArgs) => {
+  keepAwake()
   const sessionUser = await authenticator.isAuthenticated(request)
   return json({
     user: sessionUser,
