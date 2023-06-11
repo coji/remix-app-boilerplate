@@ -9,7 +9,7 @@ processes = []
   PORT = "8080"
 
 [deploy]
-release_command = "npx prisma migrate deploy"
+release_command = "pnpm dlx prisma migrate deploy"
 
 [mounts]
   source = "data"
@@ -18,28 +18,15 @@ release_command = "npx prisma migrate deploy"
 [experimental]
   auto_rollback = true
 
-[[services]]
-  http_checks = []
+[http_service]
   internal_port = 8080
-  processes = ["app"]
-  protocol = "tcp"
-  script_checks = []
-  [services.concurrency]
-    hard_limit = 25
-    soft_limit = 20
-    type = "connections"
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
 
-  [[services.ports]]
-    force_https = true
-    handlers = ["http"]
-    port = 80
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
 
-  [[services.ports]]
-    handlers = ["tls", "http"]
-    port = 443
-
-  [[services.tcp_checks]]
-    grace_period = "1s"
-    interval = "15s"
-    restart_limit = 0
-    timeout = "2s"
