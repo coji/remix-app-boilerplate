@@ -1,48 +1,51 @@
-import type { StackProps } from '@chakra-ui/react'
-import { Avatar, Button, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text } from '@chakra-ui/react'
-import { Link, useNavigation } from '@remix-run/react'
+import { Link } from '@remix-run/react'
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Button,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '~/components/ui'
 import { useSessionUser } from '~/hooks/use-session-user'
 
-export const AppLoginPane = (props: StackProps) => {
-  const navigation = useNavigation()
+export const AppLoginPane = () => {
   const user = useSessionUser()
 
   if (!user) {
     return (
-      <Stack direction="row" justify="end" align="center" fontSize="sm" color="gray.500" {...props}>
-        <Button
-          as={Link}
-          to="/auth/google"
-          size="sm"
-          type="submit"
-          variant="outline"
-          isLoading={navigation.state !== 'idle' && navigation.location.pathname === '/auth/google'}
-        >
-          Sign in
+      <div>
+        <Button asChild size="sm" type="submit" variant="outline">
+          <Link to="/auth/google">Sign in</Link>
         </Button>
-      </Stack>
+      </div>
     )
   }
 
   return (
-    <Stack direction="row" justify="end" align="center" fontSize="sm" color="gray.500" {...props}>
-      <Menu>
-        <MenuButton>
-          <Avatar size="sm" src={user.photoUrl}></Avatar>
-        </MenuButton>
-        <MenuList>
-          <MenuItem>
-            <Stack spacing="0">
-              <Text>{user.displayName}</Text>
-              <Text fontSize="xs">{user.email}</Text>
-            </Stack>
-          </MenuItem>
-          <MenuDivider />
-          <MenuItem as={Link} to="/auth/logout">
-            Sign Out
-          </MenuItem>
-        </MenuList>
-      </Menu>
-    </Stack>
+    <DropdownMenu>
+      <DropdownMenuTrigger>
+        <Avatar>
+          <AvatarImage src={user.photoUrl} />
+          <AvatarFallback>{user.displayName}</AvatarFallback>
+        </Avatar>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>
+          <div>
+            <p>{user.displayName}</p>
+            <p className="text-xs font-normal">{user.email}</p>
+          </div>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem asChild>
+          <Link to="/auth/logout">Sign Out</Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }

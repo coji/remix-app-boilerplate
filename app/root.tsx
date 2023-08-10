@@ -1,16 +1,9 @@
-import { ChakraProvider } from '@chakra-ui/react'
-import { json, type LoaderArgs, type V2_MetaFunction } from '@remix-run/node'
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from '@remix-run/react'
+import { json, type LinksFunction, type LoaderArgs, type V2_MetaFunction } from '@remix-run/node'
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
 import { createHead } from 'remix-island'
 import { authenticator } from './services/auth.server'
 import { keepAwake } from './services/shrink-to-zero.server'
+import globalStyles from './styles/globals.css'
 
 export const meta: V2_MetaFunction = () => [
   { charSet: 'utf-8' },
@@ -18,6 +11,8 @@ export const meta: V2_MetaFunction = () => [
   { title: 'App' },
   { name: 'description', content: 'Awesome App.' },
 ]
+
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: globalStyles }]
 
 export const loader = async ({ request }: LoaderArgs) => {
   keepAwake()
@@ -38,9 +33,7 @@ export default function App() {
   return (
     <>
       <Head />
-      <ChakraProvider resetCSS>
-        <Outlet />
-      </ChakraProvider>
+      <Outlet />
       <ScrollRestoration />
       <Scripts />
       <LiveReload />

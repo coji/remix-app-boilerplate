@@ -1,14 +1,13 @@
-import { Box, Container } from '@chakra-ui/react'
 import { AppFooter, AppHeader } from '~/components'
 
 export default function IndexPage() {
   return (
-    <>
-      <Container maxW="container.md" display="grid" gridTemplateRows="auto 1fr auto" minH="100dvh">
+    <div className="bg-slate-200">
+      <div className="container grid grid-rows-[auto_1fr_auto] min-h-screen">
         <AppHeader />
-        <Box>&nbsp;</Box>
+        <main>&nbsp;</main>
         <AppFooter />
-      </Container>
-    </>
+      </div>
+    </div>
   )
 }
