@@ -1,15 +1,5 @@
 import type { StackProps } from '@chakra-ui/react'
-import {
-  Avatar,
-  Button,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
-  Stack,
-  Text,
-} from '@chakra-ui/react'
+import { Avatar, Button, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Stack, Text } from '@chakra-ui/react'
 import { Link, useNavigation } from '@remix-run/react'
 import { useSessionUser } from '~/hooks/use-session-user'
 
@@ -19,24 +9,14 @@ export const AppLoginPane = (props: StackProps) => {
 
   if (!user) {
     return (
-      <Stack
-        direction="row"
-        justify="end"
-        align="center"
-        fontSize="sm"
-        color="gray.500"
-        {...props}
-      >
+      <Stack direction="row" justify="end" align="center" fontSize="sm" color="gray.500" {...props}>
         <Button
           as={Link}
           to="/auth/google"
           size="sm"
           type="submit"
           variant="outline"
-          isLoading={
-            navigation.state !== 'idle' &&
-            navigation.location.pathname === '/auth/google'
-          }
+          isLoading={navigation.state !== 'idle' && navigation.location.pathname === '/auth/google'}
         >
           Sign in
         </Button>
@@ -45,14 +25,7 @@ export const AppLoginPane = (props: StackProps) => {
   }
 
   return (
-    <Stack
-      direction="row"
-      justify="end"
-      align="center"
-      fontSize="sm"
-      color="gray.500"
-      {...props}
-    >
+    <Stack direction="row" justify="end" align="center" fontSize="sm" color="gray.500" {...props}>
       <Menu>
         <MenuButton>
           <Avatar size="sm" src={user.photoUrl}></Avatar>

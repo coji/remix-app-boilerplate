@@ -5,10 +5,7 @@ import { sessionStorage, type SessionUser } from '~/services/session.server'
 import { prisma } from './database.server'
 
 invariant(process.env.GOOGLE_CLIENT_ID, 'GOOGLE_CLIENT_ID should be defined.')
-invariant(
-  process.env.GOOGLE_CLIENT_SECRET,
-  'GOOGLE_CLIENT_SECRET should be defined.',
-)
+invariant(process.env.GOOGLE_CLIENT_SECRET, 'GOOGLE_CLIENT_SECRET should be defined.')
 
 const authenticator = new Authenticator<SessionUser>(sessionStorage)
 const googleStrategy = new GoogleStrategy(
@@ -38,7 +35,7 @@ const googleStrategy = new GoogleStrategy(
         photoUrl: true,
       },
     })
-    return { ...user, photoUrl: user.photoUrl ?? undefined }
+    return { ...user, photoUrl: user.photoUrl ?? undefined } satisfies SessionUser
   },
 )
 

@@ -4,17 +4,13 @@
  * @returns
  */
 export const buildForwardedRequest = (req: Request) => {
-  const forwardedHost =
-    req.headers.get('x-forwarded-host') || req.headers.get('host')
+  const forwardedHost = req.headers.get('x-forwarded-host') || req.headers.get('host')
   const forwardedProto = req.headers.get('x-forwarded-proto')
 
   const url = new URL(req.url)
   const protocol = forwardedProto ? forwardedProto + ':' : url.protocol
   const hostname = forwardedHost ?? url.hostname
 
-  const request = new Request(
-    `${protocol}//${hostname}${url.pathname}${url.search}${url.hash}`,
-    req,
-  )
+  const request = new Request(`${protocol}//${hostname}${url.pathname}${url.search}${url.hash}`, req)
   return request
 }

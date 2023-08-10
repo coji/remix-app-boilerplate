@@ -13,7 +13,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'],
   },
-  plugins: ['chakra-ui', 'jest-dom', 'testing-library', '@typescript-eslint'],
+  plugins: ['jest-dom', 'testing-library', '@typescript-eslint'],
   overrides: [
     {
       files: ['**/*.ts'],

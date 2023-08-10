@@ -6,12 +6,7 @@ type AppHeaderProps = FlexProps
 export const AppHeader = ({ ...rest }: AppHeaderProps) => {
   return (
     <Flex {...rest}>
-      <Heading
-        transition="all"
-        transitionDuration="1000ms"
-        py="2"
-        textAlign="center"
-      >
+      <Heading transition="all" transitionDuration="1000ms" py="2" textAlign="center">
         App
       </Heading>
 

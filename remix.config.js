@@ -8,6 +8,8 @@ module.exports = {
     return flatRoutes('routes', defineRoutes)
   },
   serverModuleFormat: 'cjs',
+  serverDependenciesToBundle: 'all',
+  watchPaths: ['tailwind.config.js'],
   future: {
     v2_errorBoundary: true,
     v2_meta: true,
@@ -16,4 +18,6 @@ module.exports = {
     v2_headers: true,
     v2_dev: true,
   },
+  tailwind: true,
+  postcss: true
 }

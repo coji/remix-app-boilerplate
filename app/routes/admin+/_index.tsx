@@ -11,12 +11,5 @@ export const loader = async ({ request }: LoaderArgs) => {
 export default function AdminIndexPage() {
   const loaderData = useLoaderData<typeof loader>()
 
-  return (
-    <Container
-      maxW="container.md"
-      display="grid"
-      minH="100dvh"
-      gridTemplateRows="auto 1fr"
-    ></Container>
-  )
+  return <Container maxW="container.md" display="grid" minH="100dvh" gridTemplateRows="auto 1fr"></Container>
 }

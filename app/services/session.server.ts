@@ -1,10 +1,7 @@
 import { type User } from '@prisma/client'
 import { createCookieSessionStorage } from '@remix-run/node'
 import invariant from 'tiny-invariant'
-invariant(
-  process.env.SESSION_SECRET,
-  'SESSION_SECRET environment variable should defined',
-)
+invariant(process.env.SESSION_SECRET, 'SESSION_SECRET environment variable should defined')
 
 export interface SessionUser {
   id: User['id']
