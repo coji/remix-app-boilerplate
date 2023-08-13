@@ -19,7 +19,7 @@ export const AppLoginPane = () => {
   if (!user) {
     return (
       <div>
-        <Button asChild size="sm" type="submit" variant="outline">
+        <Button asChild size="sm" type="submit" variant="default">
           <Link to="/auth/google">Sign in</Link>
         </Button>
       </div>
