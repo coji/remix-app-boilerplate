@@ -1,6 +1,6 @@
 export const AppFooter = () => {
   return (
-    <div className="text-center p-2 pt-8">
+    <div className="bg-background p-2 text-center text-foreground">
       <div>
         Copyright ©{' '}
         <a href="https://twitter.com/techtalkjp" target="_blank" rel="noreferrer">
