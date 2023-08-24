@@ -143,9 +143,6 @@ dependencies:
   remix-island:
     specifier: 0.1.2
     version: 0.1.2(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react-dom@18.2.0)(react@18.2.0)
-  remix-typedjson:
-    specifier: 0.2.0
-    version: 0.2.0(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react@18.2.0)
   remix-utils:
     specifier: 6.6.0
     version: 6.6.0(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react@18.2.0)(typescript@5.1.6)(zod@3.22.2)
@@ -9956,18 +9953,6 @@ packages:
       '@remix-run/server-runtime': 1.19.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /remix-typedjson@0.2.0(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react@18.2.0):
-    resolution: {integrity: sha512-vSi+Q8h9Mej1eljxu/3Jim080hQ6DCmQxrpntmlrQy/DoIBn153z/TXd8jiTg5cAtxP5/EmL6DTcK2NCi+6EBA==}
-    peerDependencies:
-      '@remix-run/react': ^1.16.0
-      '@remix-run/server-runtime': ^1.16.0
-      react: ^17.0.2 || ^18.0.0
-    dependencies:
-      '@remix-run/react': 1.19.3(react-dom@18.2.0)(react@18.2.0)
-      '@remix-run/server-runtime': 1.19.3
-      react: 18.2.0
     dev: false
 
   /remix-utils@6.6.0(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react@18.2.0)(typescript@5.1.6)(zod@3.22.2):

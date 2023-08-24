@@ -64,7 +64,6 @@
     "remix-auth-google": "1.2.0",
     "remix-auth-oauth2": "1.8.0",
     "remix-island": "0.1.2",
-    "remix-typedjson": "0.2.0",
     "remix-utils": "6.6.0",
     "tailwind-merge": "1.14.0",
     "tailwindcss-animate": "1.0.6",
