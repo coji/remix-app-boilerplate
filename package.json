@@ -10,7 +10,7 @@
     "start": "remix-serve build",
     "setup": "prisma generate && prisma migrate deploy && prisma db seed",
     "seed": "prisma db seed",
-    "format": "prettier -c --ignore-path .gitignore '**/*.ts'",
+    "format": "prettier -c '**/*.ts'",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint app/**/*.{ts,tsx}",
     "test": "bun test --watch",
     "test:run": "bun test",
