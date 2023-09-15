@@ -54,7 +54,7 @@ jobs:
         run: bun run typecheck
 
   unit_test:
-    name: Unit test
+    name: ⚡ Unit test
     runs-on: ubuntu-latest
     timeout-minutes: 60
     services:
@@ -90,7 +90,7 @@ jobs:
       - name: 🛠 Setup Database
         run: bun run prisma migrate reset --force
 
-      - name: ⚡ Run vitest
+      - name: ⚡ Run unit test
         run: bun test:run
 
 
