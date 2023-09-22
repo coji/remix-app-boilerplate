@@ -1,10 +1,10 @@
-import { json, type LinksFunction, type LoaderArgs, type V2_MetaFunction } from '@remix-run/node'
+import { json, type LinksFunction, type LoaderFunctionArgs, type MetaFunction } from '@remix-run/node'
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
 import { createHead } from 'remix-island'
 import { authenticator } from './services/auth.server'
 import globalStyles from './styles/globals.css'
 
-export const meta: V2_MetaFunction = () => [
+export const meta: MetaFunction = () => [
   { charSet: 'utf-8' },
   { name: 'viewport', content: 'width=device-width,initial-scale=1' },
   { title: 'App' },
@@ -13,7 +13,7 @@ export const meta: V2_MetaFunction = () => [
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: globalStyles }]
 
-export const loader = async ({ request }: LoaderArgs) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
   const sessionUser = await authenticator.isAuthenticated(request)
   return json({ user: sessionUser })
 }
