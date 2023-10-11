@@ -190,9 +190,6 @@ devDependencies:
   autoprefixer:
     specifier: 10.4.16
     version: 10.4.16(postcss@8.4.31)
-  bun-types:
-    specifier: 1.0.5-canary.20231009T140142
-    version: 1.0.5-canary.20231009T140142
   esbuild:
     specifier: 0.19.4
     version: 0.19.4
@@ -3933,10 +3930,6 @@ packages:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
     dependencies:
       semver: 7.5.4
-    dev: true
-
-  /bun-types@1.0.5-canary.20231009T140142:
-    resolution: {integrity: sha512-5hT8WBXZ2ozdJt6s0nnnh4iQXn6xp9a7spbRYjapNxKjR3ckS5U2V347H3+XpaMVzc/a7D2I2KnKqIPO1R82kg==}
     dev: true
 
   /bytes@3.0.0:

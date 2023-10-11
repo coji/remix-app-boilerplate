@@ -82,7 +82,6 @@
     "@types/web": "0.0.116",
     "@typescript-eslint/parser": "6.7.5",
     "autoprefixer": "10.4.16",
-    "bun-types": "1.0.5-canary.20231009T140142",
     "esbuild": "0.19.4",
     "eslint": "8.51.0",
     "eslint-config-prettier": "9.0.0",
